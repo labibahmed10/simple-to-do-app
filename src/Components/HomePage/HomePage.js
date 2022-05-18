@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ModalBox from "../ModalBox/ModalBox";
 import Spinner from "../Spinner";
 import ToDoLists from "../ToDoLists/ToDoLists";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const HomePage = () => {
   // getting all to do lists here
@@ -25,10 +26,10 @@ const HomePage = () => {
         </Link>
       </div>
 
-      <div className="h-[40rem] w-[55rem] border mx-auto mt-10 text-white px-2">
+      <div className="h-[40rem] w-[65rem] border mx-auto mt-10 text-white px-2">
         <div className="flex items-center gap-x-3 justify-center p-10">
-          <label htmlFor="my-modal-3" className="btn modal-button">
-            Add Task
+          <label htmlFor="my-modal-3" className="btn modal-button gap-1">
+            Add Task <AiOutlinePlus className="text-xl font-bold"></AiOutlinePlus>
           </label>
         </div>
         <ToDoLists lists={lists} refetch={refetch}></ToDoLists>
