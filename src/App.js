@@ -10,8 +10,8 @@ function App() {
     <div>
       <Routes>
         <Route index element={<HomePage></HomePage>}></Route>
-        <Route path="/login" element={<LogIn></LogIn>}></Route>
-        <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        {/* <Route path="/login" element={<LogIn></LogIn>}></Route> */}
+        {/* <Route path="/signup" element={<SignUp></SignUp>}></Route> */}
       </Routes>
 
       <ToastContainer theme="dark"></ToastContainer>
