@@ -21,7 +21,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="navbar bg-base-100">
-        <Link to="" className="text-3xl font-semibold mx-auto">
+        <Link to="/login" className="text-3xl font-semibold mx-auto">
           My Simple To-Do App
         </Link>
       </div>
