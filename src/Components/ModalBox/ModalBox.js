@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { toast } from "react-toastify";
 
 const ModalBox = ({ refetch }) => {
   const handleToDoModal = (e) => {
@@ -8,7 +9,9 @@ const ModalBox = ({ refetch }) => {
     const desc = e.target.desc.value;
 
     if (!name || !desc) {
-      return "";
+      return toast.warn("Please Fill Up the Form", {
+        autoClose: 1500,
+      });
     }
 
     const todoInfo = {
@@ -43,7 +46,7 @@ const ModalBox = ({ refetch }) => {
           <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">
             ✕
           </label>
-          <h3 className="text-lg font-bold mb-2">What do you want as a task?</h3>
+          <h3 className="text-lg font-bold mb-3">What do you want to add as a task?</h3>
           <form className="flex flex-col gap-2 text-black" onSubmit={handleToDoModal}>
             <input
               name="task"
@@ -60,7 +63,7 @@ const ModalBox = ({ refetch }) => {
 
             <div className="modal-action">
               <button type="submit" className="btn">
-                Complete
+                Add
               </button>
             </div>
           </form>

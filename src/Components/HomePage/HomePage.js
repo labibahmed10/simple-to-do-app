@@ -6,6 +6,7 @@ import Spinner from "../Spinner";
 import ToDoLists from "../ToDoLists/ToDoLists";
 
 const HomePage = () => {
+  // getting all to do lists here
   const {
     data: lists,
     isLoading,
@@ -24,13 +25,13 @@ const HomePage = () => {
         </Link>
       </div>
 
-      <div className="h-[40rem] w-[55rem] border mx-auto mt-10 text-white px-5">
+      <div className="h-[40rem] w-[55rem] border mx-auto mt-10 text-white px-2">
         <div className="flex items-center gap-x-3 justify-center p-10">
           <label htmlFor="my-modal-3" className="btn modal-button">
             Add Task
           </label>
         </div>
-        <ToDoLists lists={lists}></ToDoLists>
+        <ToDoLists lists={lists} refetch={refetch}></ToDoLists>
       </div>
 
       {/* modal is here */}
