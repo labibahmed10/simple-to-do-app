@@ -6,7 +6,7 @@ const ToDoLists = ({ lists, refetch }) => {
   const handleDeleteToDo = (id) => {
     console.log(id);
 
-    fetch(`http://localhost:5000/allworks/${id}`, {
+    fetch(`https://quiet-fortress-57180.herokuapp.com/allworks/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -21,7 +21,7 @@ const ToDoLists = ({ lists, refetch }) => {
   };
 
   const handleUpdateComplete = (id) => {
-    fetch(`http://localhost:5000/allworks/${id}`, {
+    fetch(`https://quiet-fortress-57180.herokuapp.com/allworks/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

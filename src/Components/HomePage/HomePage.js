@@ -12,7 +12,9 @@ const HomePage = () => {
     data: lists,
     isLoading,
     refetch,
-  } = useQuery("alltodo", () => fetch("http://localhost:5000/allworks").then((res) => res.json()));
+  } = useQuery("alltodo", () =>
+    fetch("https://quiet-fortress-57180.herokuapp.com/allworks").then((res) => res.json())
+  );
 
   if (isLoading) {
     return <Spinner></Spinner>;

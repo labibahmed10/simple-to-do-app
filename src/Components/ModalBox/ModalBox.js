@@ -19,7 +19,7 @@ const ModalBox = ({ refetch }) => {
       desc,
     };
 
-    fetch("http://localhost:5000/allworks", {
+    fetch("https://quiet-fortress-57180.herokuapp.com/allworks", {
       method: "POST",
       headers: {
         "content-type": "application/json",
