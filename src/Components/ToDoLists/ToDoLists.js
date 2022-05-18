@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const ToDoLists = () => {
-  const [lists, setLists] = useState([]);
+const ToDoLists = ({ lists }) => {
+  const handleDeleteToDo = (id) => {
+    console.log(id);
+  };
 
-  useEffect(() => {
-    fetch("http://localhost:5000/allworks")
-      .then((res) => res.json())
-      .then((data) => setLists(data));
-  }, []);
-  console.log(lists);
   return (
     <section>
       <div className="overflow-x-auto">
@@ -22,13 +18,15 @@ const ToDoLists = () => {
             </tr>
           </thead>
           <tbody>
-            {lists.map((data, i) => (
+            {lists?.map((data, i) => (
               <tr key={data._id}>
                 <th>{i + 1}</th>
                 <td>{data?.name}</td>
                 <td>{data?.desc}</td>
                 <td>
-                  <button class="btn btn-sm">Delete</button>
+                  <button onClick={() => handleDeleteToDo(data._id)} className="btn btn-sm">
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

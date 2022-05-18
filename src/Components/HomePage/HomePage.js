@@ -1,9 +1,21 @@
 import React from "react";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import ModalBox from "../ModalBox/ModalBox";
+import Spinner from "../Spinner";
 import ToDoLists from "../ToDoLists/ToDoLists";
 
 const HomePage = () => {
+  const {
+    data: lists,
+    isLoading,
+    refetch,
+  } = useQuery("alltodo", () => fetch("http://localhost:5000/allworks").then((res) => res.json()));
+
+  if (isLoading) {
+    return <Spinner></Spinner>;
+  }
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -12,17 +24,17 @@ const HomePage = () => {
         </Link>
       </div>
 
-      <div className="h-[40rem] w-[55rem] border mx-auto mt-10 text-white">
+      <div className="h-[40rem] w-[55rem] border mx-auto mt-10 text-white px-5">
         <div className="flex items-center gap-x-3 justify-center p-10">
-          <label htmlFor="my-modal-6" className="btn modal-button">
+          <label htmlFor="my-modal-3" className="btn modal-button">
             Add Task
           </label>
         </div>
-        <ToDoLists></ToDoLists>
+        <ToDoLists lists={lists}></ToDoLists>
       </div>
 
       {/* modal is here */}
-      <ModalBox></ModalBox>
+      <ModalBox refetch={refetch}></ModalBox>
     </div>
   );
 };
